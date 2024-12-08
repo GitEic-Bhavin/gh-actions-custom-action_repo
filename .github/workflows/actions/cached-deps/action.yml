@@ -1,0 +1,19 @@
+# This is action file where your all repetative jobs and steps will be defined here.
+# It will be use in your workflow yml file.
+
+name: 'Get & Cache Dependencies'
+description: "Combine steps of npm install and cache it."
+runs:
+  using: composite
+  steps: 
+    - name: Cache dependencies
+      id: cache
+      uses: actions/cache@v3
+      with:
+        path: node_modules
+        key: deps-node-modules-${{ hashFiles('**/package-lock.json') }}
+
+    - name: Install dependencies
+      run: npm ci
+      if: steps.cache.outputs.cache-hit != 'true'
+      shell: bash
