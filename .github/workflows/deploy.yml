@@ -28,7 +28,7 @@ jobs:
         # uses: ./.github/workflows/actions/cached-deps
         uses: ./.github/workflows/actions/Input-actions
         with:
-          caching: 'false'
+          caching: false
 
       - name: Lint code
         run: npm run lint
