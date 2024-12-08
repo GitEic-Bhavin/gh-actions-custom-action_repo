@@ -25,7 +25,8 @@ jobs:
 # if your workflow is in diff repo and your custom actions is defined in other repo.
 # use, uses: "github_accontname/repo_name"
       - name: Use Custom actions from same repo
-        uses: ./.github/workflows/actions/cached-deps
+        # uses: ./.github/workflows/actions/cached-deps
+        uses: ./.github/workflows/actions/Input-actions
 
       - name: Lint code
         run: npm run lint
