@@ -30,6 +30,10 @@ jobs:
         uses: ./.github/workflows/actions/output-actions
         with:
           caching: false
+        id: cache-id
+
+      - name: Output Info
+        run: echo "Cache Used ? ${{ steps.cache-id.outputs.used-cache }}"
 
       - name: Lint code
         run: npm run lint
