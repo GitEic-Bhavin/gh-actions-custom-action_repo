@@ -1,0 +1,19 @@
+Custom Action.
+Create your custom actions to optimize your repetative same code in your workflows multiple jobs and steps easily.
+
+Types of Custom Actions
+
+1. JavaScript Actions
+Use JavaScript (NodeJS).
+your code writen in javascript executable files.
+Whenever your workflow runs it will triggers this executables files.
+
+2. Docker Actions
+
+- Create a Dockerfile: You define the action inside a Docker container. The Dockerfile specifies the image and setup required to run your custom action.
+- Define a action.yml file: This file contains metadata about the action, including inputs, outputs, and the Docker image to be used.
+- Run Inside a Container: The action runs inside the Docker container when triggered, ensuring that the environment remains isolated from the runner's environment.
+
+3. Composite Actions
+
+- A composite action allows you to combine multiple workflow steps within one action.
