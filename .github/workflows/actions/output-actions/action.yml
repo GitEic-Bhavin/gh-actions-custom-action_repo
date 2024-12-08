@@ -1,7 +1,7 @@
 # This is action file where your all repetative jobs and steps will be defined here.
 # It will be use in your workflow yml file.
 
-name: 'Using Input Get & Cache Dependencies'
+name: 'Using Output Get & Cache Dependencies'
 description: "Combine steps of npm install and cache it."
 # use inputs: key for caching by default: true
 inputs:
@@ -15,6 +15,10 @@ inputs:
     #   caching: 'false' 
     # in that workflow.yml files. But, it will reinstall npm and dependencies.
     # Go to deploy.yml > jon: lint > with: caching: 'false'
+outputs:
+  used-cache:
+    description: "Whether the cache was used."
+    value: ${{ steps.cache.outputs.cache }}
 runs:
   using: composite
   steps: 
@@ -27,6 +31,8 @@ runs:
         key: deps-node-modules-${{ hashFiles('**/package-lock.json') }}
 
     - name: Install dependencies
-      run: npm ci
+      run: | 
+        npm ci
+        echo "::set-output name=cache::'${{ inputs.caching }}'"
       if: steps.cache.outputs.cache-hit != 'true' || inputs.caching != 'true'
       shell: bash
