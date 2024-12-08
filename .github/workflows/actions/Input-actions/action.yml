@@ -9,6 +9,12 @@ inputs:
     description: 'Wheather caching requires of dependencies or not'
     required: false
     default: 'true' # If default: 'false' -- It will not performs "Cache Dependencies" Steps.
+
+    # But for some reasons, if you dont want to install dependencies from caching in lint job.
+    # with:
+    #   caching: 'false' 
+    # in that workflow.yml files.
+    # Go to deploy.yml > jon: lint > with: caching: 'false'
 runs:
   using: composite
   steps: 
