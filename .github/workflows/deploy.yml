@@ -33,7 +33,8 @@ jobs:
         id: cache-id
 
       - name: Output Info 
-        run: echo "Cache Used ? ${{ steps.cache-id.outputs.used-cache }}"
+        # run: echo "Cache Used ? ${{ steps.cache-id.outputs.used-cache }}"
+        run: echo "Cache Used ? ${{ steps.cache-id.outputs.used-cache-hit }}"
         
 
       - name: Lint code
