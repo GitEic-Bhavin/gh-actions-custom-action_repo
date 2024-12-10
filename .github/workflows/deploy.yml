@@ -32,8 +32,9 @@ jobs:
           caching: 'false'
         id: cache-id
 
-      - name: Output Info
-        run: echo "Cache Used ? ${{ steps.cache-id.outputs.outcome.used-cache }}"
+      - name: Output Info 
+        run: echo "Cache Used ? ${{ steps.cache-id.outputs.used-cache }}"
+        
 
       - name: Lint code
         run: npm run lint
