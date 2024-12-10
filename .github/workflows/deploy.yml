@@ -57,7 +57,7 @@ jobs:
       - name: Use Custom actions from same repo
         uses: ./.github/workflows/actions/cached-deps
         id: cache-id-2
-      - name: Output Info 
+      - name: Output Info1
         run: |
           echo "Cache Used: ${{ steps.cache-id-2.outputs.used-cache }}"
       - name: Test code
