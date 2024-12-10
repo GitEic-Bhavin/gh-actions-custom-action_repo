@@ -17,7 +17,7 @@ jobs:
       #     key: deps-node-modules-${{ hashFiles('**/package-lock.json') }}
       # - name: Install dependencies
       #   if: steps.cache.outputs.cache-hit != 'true'
-      #   run: npm ci
+      #   run: npm ci 
 
 # Just Use your custom action -- composite which is defined in this same local repo
 # use, uses: ./.github/workflows/actions/cached-deps
@@ -33,7 +33,7 @@ jobs:
         id: cache-id
 
       - name: Output Info
-        run: echo "Cache Used ? ${{ steps.cache-id.outputs.used-cache }}"
+        run: echo "Cache Used ? ${{ steps.cache-id.outputs.outcome.used-cache }}"
 
       - name: Lint code
         run: npm run lint
