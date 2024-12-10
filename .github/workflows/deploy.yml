@@ -55,13 +55,14 @@ jobs:
       #   if: steps.cache.outputs.cache-hit != 'true'
       #   run: npm ci
       - name: Use Custom actions from same repo
-        uses: ./.github/workflows/actions/cached-deps
+        # uses: ./.github/workflows/actions/cached-deps
+        uses: ./.github/workflows/actions/output-actions
         id: second
-        with:
-          caching: 'true'
+
       - name: Output Info1
         run: |
           echo "Cache Used: ${{ steps.second.outputs.used-cache }}"
+
       - name: Test code
         id: run-tests
         run: npm run test
