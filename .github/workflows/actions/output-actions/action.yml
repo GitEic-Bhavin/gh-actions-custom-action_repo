@@ -33,6 +33,7 @@ runs:
     - name: Install dependencies
       run: | 
         npm ci
-        echo "::set-output name=cache::'${{ inputs.caching }}'"
+       
       if: steps.cache.outputs.cache-hit != 'true' || inputs.caching != 'true'
       shell: bash
+      #  echo "::set-output name=cache::'${{ inputs.caching }}'"
