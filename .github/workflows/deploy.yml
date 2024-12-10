@@ -28,8 +28,8 @@ jobs:
         # uses: ./.github/workflows/actions/cached-deps
         # uses: ./.github/workflows/actions/Input-actions
         uses: ./.github/workflows/actions/output-actions
-        # with:
-        #   caching: 'ftrue'
+        with:
+          caching: 'false'
         id: cache-id
         
 
@@ -56,6 +56,10 @@ jobs:
       #   run: npm ci
       - name: Use Custom actions from same repo
         uses: ./.github/workflows/actions/cached-deps
+        id: cache-id-2
+      - name: Output Info 
+        run: |
+          echo "Cache Used: ${{ steps.cache-id-2.outputs.used-cache }}"
       - name: Test code
         id: run-tests
         run: npm run test
