@@ -56,10 +56,10 @@ jobs:
       #   run: npm ci
       - name: Use Custom actions from same repo
         uses: ./.github/workflows/actions/cached-deps
-        id: cache-id-2
+        id: second
       - name: Output Info1
         run: |
-          echo "Cache Used: ${{ steps.cache-id-2.outputs.used-cache }}"
+          echo "Cache Used: ${{ steps.second.outputs.used-cache }}"
       - name: Test code
         id: run-tests
         run: npm run test
